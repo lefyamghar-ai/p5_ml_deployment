@@ -10,11 +10,40 @@ Objectifs :
 - tester le code avec **Pytest** et mesurer la couverture ;
 - automatiser les tests avec **GitHub Actions**.
 
+## Le modèle
+
+| Élément | Valeur |
+|---|---|
+| Algorithme | `RandomForestClassifier` (200 arbres, `max_depth=4`, `min_samples_leaf=5`, `class_weight="balanced"`) |
+| Données | 1 470 employés, 16,12 % de départs (SIRH + évaluations + sondage) |
+| Entrée | 25 caractéristiques brutes d'un employé → 39 variables après encodage one-hot |
+| Seuil de décision | 0,435, choisi en validation croisée (max F2 : le rappel compte deux fois plus que la précision) |
+| Performances (test, 294 employés) | rappel 0,83 · précision 0,36 · F2 0,66 · ROC AUC 0,79 (39 départs détectés sur 47) |
+
+Le fichier `app/ml/model.joblib` contient le modèle, la liste des colonnes, le seuil, les modalités
+attendues pour chaque variable qualitative, la version et les métriques de test.
+Il se régénère à l'identique (mêmes réglages et même découpage train/test qu'au projet 4) avec :
+
+```bash
+python scripts/export_model.py
+```
+
+Le prétraitement (`app/ml/preprocessing.py`) reproduit exactement celui du projet 4 : il produit les mêmes
+39 colonnes que `etape_2_X.csv`, aussi bien sur tout le dataset que pour un seul employé à la fois (cas de l'API).
+
 ## Structure du dépôt
 
 ```text
 .
 ├── app/                  # Code de l'application (API, modèle, base de données)
+│   └── ml/
+│       ├── preprocessing.py  # Transformation données brutes -> variables du modèle
+│       └── model.joblib      # Modèle exporté
+├── data/
+│   ├── raw/              # 3 fichiers sources du projet 4
+│   └── employes.csv      # Données fusionnées (1 470 employés)
+├── scripts/
+│   └── export_model.py   # Entraîne et exporte le modèle
 ├── requirements.txt      # Dépendances d'exécution
 ├── requirements-dev.txt  # + tests, couverture, lint
 ├── ruff.toml             # Standards de code (vérifiés par ruff)
@@ -63,7 +92,7 @@ par exemple `feat: ajoute l'endpoint /predict`, `fix: ...`, `test: ...`, `docs: 
 ## Avancement
 
 - [x] Structure du dépôt, dépendances, conventions
-- [ ] Export du modèle du projet 4
+- [x] Export du modèle du projet 4
 - [ ] API FastAPI avec validation Pydantic
 - [ ] Base PostgreSQL : création des tables, chargement du dataset, traçabilité des prédictions
 - [ ] Tests Pytest et rapport de couverture
