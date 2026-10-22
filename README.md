@@ -50,7 +50,10 @@ Le prétraitement (`app/ml/preprocessing.py`) reproduit exactement celui du proj
 │   ├── raw/              # 3 fichiers sources du projet 4
 │   ├── employes.csv      # Données fusionnées (1 470 employés)
 │   └── examples/         # Exemples d'entrées/sorties du modèle extraits de la base
+├── .github/workflows/    # Pipeline CI/CD (ci-cd.yml) et déploiement (deploy.yml)
+├── docker/initdb/        # Création du rôle applicatif dans le conteneur PostgreSQL
 ├── docs/
+│   ├── ci-cd.md          # Pipeline, environnements, secrets, déploiement
 │   ├── database.md       # Schéma UML de la base, choix de conception, droits d'accès
 │   └── tests.md          # Stratégie de test, couverture, points faibles traités
 ├── sql/
@@ -61,9 +64,12 @@ Le prétraitement (`app/ml/preprocessing.py`) reproduit exactement celui du proj
 │   ├── create_db.py      # Crée les tables et les droits
 │   ├── load_dataset.py   # Charge le dataset dans employees
 │   ├── predict_from_db.py # Prédit sur des employés de la base (tracé en base)
-│   └── query_db.py       # Requêtes d'exemple, export CSV
+│   ├── query_db.py       # Requêtes d'exemple, export CSV
+│   └── smoke_test.sh     # Vérification d'une API déployée
 ├── tests/                # Tests Pytest (unitaires et fonctionnels)
 ├── pyproject.toml        # Configuration de pytest et de la couverture
+├── Dockerfile            # Image de l'API
+├── docker-compose.yml    # Déploiement complet : PostgreSQL + init + API
 ├── requirements.txt      # Dépendances d'exécution
 ├── requirements-dev.txt  # + tests, couverture, lint
 ├── ruff.toml             # Standards de code (vérifiés par ruff)
@@ -91,7 +97,18 @@ python scripts/create_db.py
 python scripts/load_dataset.py
 ```
 
-## Lancer l'API
+## Déploiement (Docker)
+
+Hugging Face Spaces étant devenu payant, l'API est déployée en local, comme l'autorise l'énoncé :
+
+```bash
+cp .env.example .env              # choisir des mots de passe et une clé API
+docker compose up -d --build      # PostgreSQL + tables + dataset + API
+```
+
+Puis http://localhost:8000/docs. Détails, environnements et secrets : [docs/ci-cd.md](docs/ci-cd.md).
+
+## Lancer l'API sans Docker
 
 ```bash
 uvicorn app.main:app --reload
@@ -167,6 +184,14 @@ pytest --cov --cov-report=term-missing --cov-report=html
 Ils tournent sur SQLite par défaut, ou sur PostgreSQL avec `TEST_DATABASE_URL`.
 Détail des tests, de la couverture et des points faibles traités : [docs/tests.md](docs/tests.md).
 
+## CI/CD (GitHub Actions)
+
+À chaque push et à chaque Pull Request : **lint** (ruff), **tests** (pytest sur PostgreSQL éphémère, couverture),
+puis **déploiement Docker de test** de la pile complète avec un test de fumée.
+Après fusion dans `develop`, déploiement dans l'environnement **test** ; après fusion dans `main` ou un tag `v*`,
+déploiement en **production** et publication de l'image sur `ghcr.io`. Les secrets sont stockés dans les
+environnements GitHub. Détails : [docs/ci-cd.md](docs/ci-cd.md).
+
 ## Standards de code
 
 - Style et imports vérifiés par [ruff](https://docs.astral.sh/ruff/) (`ruff check .`), règles dans `ruff.toml`.
@@ -200,5 +225,5 @@ par exemple `feat: ajoute l'endpoint /predict`, `fix: ...`, `test: ...`, `docs: 
 - [x] API FastAPI (`/health`, `/model/info`, `/predict`, `/predict/batch`), validation Pydantic, clé API
 - [x] Base PostgreSQL : schéma, chargement du dataset, traçabilité de chaque prédiction, historique via l'API
 - [x] Tests Pytest (160 tests) et rapport de couverture (100 %)
-- [ ] Pipeline CI/CD GitHub Actions (environnements dev/test/prod, secrets)
+- [x] Pipeline CI/CD GitHub Actions (environnements dev/test/prod, secrets), déploiement Docker
 - [ ] Documentation complète et soutenance
