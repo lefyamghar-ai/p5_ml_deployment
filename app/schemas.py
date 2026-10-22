@@ -6,6 +6,7 @@ les variables qualitatives n'acceptent que les modalites connues du modele : une
 inconnue serait silencieusement encodee en "categorie de reference", donc on la refuse.
 """
 
+from datetime import datetime
 from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
@@ -74,6 +75,8 @@ class EmployeInput(BaseModel):
 
 
 class PredictionOutput(BaseModel):
+    prediction_id: int = Field(description="Identifiant de la prédiction en base (table predictions)")
+    created_at: datetime
     probabilite_depart: float = Field(ge=0, le=1, description="Probabilité de démission estimée")
     prediction: Literal[0, 1] = Field(description="1 = départ probable (probabilité >= seuil)")
     label: Literal["depart_probable", "reste"]
@@ -89,9 +92,33 @@ class BatchOutput(BaseModel):
     resultats: list[PredictionOutput]
 
 
+class PredictionRecord(PredictionOutput):
+    """Une prediction de l'historique, avec les donnees d'entree qui l'ont produite."""
+
+    source: str
+    employee_id: int | None
+    latency_ms: float
+    entree: EmployeInput
+
+
+class PredictionList(BaseModel):
+    total: int
+    limit: int
+    offset: int
+    items: list[PredictionRecord]
+
+
+class EmployeeOutput(EmployeInput):
+    model_config = ConfigDict(extra="ignore")
+
+    id_employee: int
+    a_quitte_l_entreprise: bool
+
+
 class HealthOutput(BaseModel):
     status: Literal["ok", "degraded"]
     model_loaded: bool
+    database: bool
     environment: str
 
 
