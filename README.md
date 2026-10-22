@@ -39,15 +39,28 @@ Le prétraitement (`app/ml/preprocessing.py`) reproduit exactement celui du proj
 │   ├── main.py           # API FastAPI (endpoints)
 │   ├── schemas.py        # Schémas Pydantic (validation entrée / sortie)
 │   ├── config.py         # Configuration lue dans l'environnement (.env)
+│   ├── database.py       # Connexion PostgreSQL (SQLAlchemy)
+│   ├── models.py         # Tables (ORM) : employees, prediction_inputs, predictions
+│   ├── services.py       # Prédiction + enregistrement en base (chemin unique)
 │   └── ml/
 │       ├── predictor.py      # Chargement du modèle et prédiction
 │       ├── preprocessing.py  # Transformation données brutes -> variables du modèle
 │       └── model.joblib      # Modèle exporté
 ├── data/
 │   ├── raw/              # 3 fichiers sources du projet 4
-│   └── employes.csv      # Données fusionnées (1 470 employés)
+│   ├── employes.csv      # Données fusionnées (1 470 employés)
+│   └── examples/         # Exemples d'entrées/sorties du modèle extraits de la base
+├── docs/
+│   └── database.md       # Schéma UML de la base, choix de conception, droits d'accès
+├── sql/
+│   ├── 00_roles.sql      # Rôles PostgreSQL et base (moindre privilège)
+│   └── 01_schema.sql     # DDL des tables (généré)
 ├── scripts/
-│   └── export_model.py   # Entraîne et exporte le modèle
+│   ├── export_model.py   # Entraîne et exporte le modèle
+│   ├── create_db.py      # Crée les tables et les droits
+│   ├── load_dataset.py   # Charge le dataset dans employees
+│   ├── predict_from_db.py # Prédit sur des employés de la base (tracé en base)
+│   └── query_db.py       # Requêtes d'exemple, export CSV
 ├── requirements.txt      # Dépendances d'exécution
 ├── requirements-dev.txt  # + tests, couverture, lint
 ├── ruff.toml             # Standards de code (vérifiés par ruff)
@@ -67,6 +80,14 @@ pip install -r requirements-dev.txt
 cp .env.example .env   # puis renseigner les vraies valeurs
 ```
 
+Base de données (détails dans [docs/database.md](docs/database.md)) :
+
+```bash
+psql -d postgres -v admin_pwd="'MOT_DE_PASSE_ADMIN'" -v app_pwd="'MOT_DE_PASSE_APP'" -f sql/00_roles.sql
+python scripts/create_db.py
+python scripts/load_dataset.py
+```
+
 ## Lancer l'API
 
 ```bash
@@ -77,10 +98,17 @@ Documentation interactive (Swagger) : http://localhost:8000/docs, ou ReDoc sur `
 
 | Méthode | Endpoint | Rôle | Clé API |
 |---|---|---|---|
-| GET | `/health` | État de l'API et du modèle | non |
+| GET | `/health` | État de l'API, du modèle et de la base | non |
 | GET | `/model/info` | Version, seuil, métriques de test, modalités acceptées | non |
 | POST | `/predict` | Prédiction pour un employé | oui |
 | POST | `/predict/batch` | Prédiction pour 1 à 100 employés | oui |
+| GET | `/employees/{id}` | Données d'un employé du dataset | oui |
+| POST | `/employees/{id}/predict` | Prédiction pour un employé du dataset | oui |
+| GET | `/predictions` | Historique paginé (`limit`, `offset`, filtre `prediction`) | oui |
+| GET | `/predictions/{id}` | Une prédiction et ses données d'entrée | oui |
+
+Chaque prédiction est enregistrée en base avant d'être renvoyée (entrée dans `prediction_inputs`,
+sortie dans `predictions`) ; la réponse contient son `prediction_id`. Si la base est indisponible, l'API répond **503**.
 
 Exemple :
 
@@ -102,7 +130,8 @@ curl -X POST http://localhost:8000/predict \
 Réponse :
 
 ```json
-{"probabilite_depart": 0.5445, "prediction": 1, "label": "depart_probable", "seuil": 0.4349, "model_version": "1.0.0"}
+{"prediction_id": 31, "created_at": "2026-10-22T17:38:48.160744+02:00", "probabilite_depart": 0.5445,
+ "prediction": 1, "label": "depart_probable", "seuil": 0.4349, "model_version": "1.0.0"}
 ```
 
 ### Validation des données (Pydantic)
@@ -120,7 +149,10 @@ Toute donnée non conforme est refusée avec un code **422** qui indique le cham
 - Les endpoints de prédiction exigent l'en-tête `X-API-Key` dès que la variable `API_KEY` est définie
   (réponse **401** sinon). Sans `API_KEY` (développement local), l'accès est libre.
 - La clé est comparée en temps constant (`secrets.compare_digest`).
-- Aucun secret dans le code : `API_KEY` vient du `.env` (ignoré par Git) ou des secrets GitHub.
+- En base, l'API utilise un rôle PostgreSQL limité (`technova_app`) : lecture du dataset, ajout et lecture des
+  prédictions, mais ni modification ni suppression de l'historique.
+- Aucun secret dans le code : `API_KEY` et les URL de base de données viennent du `.env` (ignoré par Git)
+  ou des secrets GitHub.
 
 ## Standards de code
 
@@ -153,7 +185,7 @@ par exemple `feat: ajoute l'endpoint /predict`, `fix: ...`, `test: ...`, `docs: 
 - [x] Structure du dépôt, dépendances, conventions
 - [x] Export du modèle du projet 4
 - [x] API FastAPI (`/health`, `/model/info`, `/predict`, `/predict/batch`), validation Pydantic, clé API
-- [ ] Base PostgreSQL : création des tables, chargement du dataset, traçabilité des prédictions
+- [x] Base PostgreSQL : schéma, chargement du dataset, traçabilité de chaque prédiction, historique via l'API
 - [ ] Tests Pytest et rapport de couverture
 - [ ] Pipeline CI/CD GitHub Actions (environnements dev/test/prod, secrets)
 - [ ] Documentation complète et soutenance
