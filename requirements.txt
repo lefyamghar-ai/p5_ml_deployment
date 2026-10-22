@@ -1,0 +1,13 @@
+# Dependances d'execution (API + modele + base de donnees)
+# scikit-learn / numpy / pandas figes aux versions du projet 4 : le modele exporte en depend.
+numpy==2.3.5
+pandas==2.2.3
+scikit-learn==1.8.0
+joblib==1.6.0
+fastapi==0.159.1
+uvicorn[standard]==0.54.0
+pydantic==2.14.1
+pydantic-settings==2.16.1
+sqlalchemy==2.1.6
+psycopg[binary]==3.3.6
+python-dotenv==1.2.4
