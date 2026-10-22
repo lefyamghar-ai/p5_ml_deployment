@@ -1,0 +1,49 @@
+# Deploiement complet en local : PostgreSQL + initialisation de la base + API.
+#   docker compose up -d --build      puis http://localhost:8000/docs
+#   docker compose down               (ajouter -v pour effacer aussi les donnees)
+# Les secrets viennent du fichier .env (voir .env.example), jamais de ce fichier.
+
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: technova_admin
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:?POSTGRES_ADMIN_PASSWORD manquant dans .env}
+      POSTGRES_DB: technova
+      POSTGRES_APP_PASSWORD: ${POSTGRES_APP_PASSWORD:?POSTGRES_APP_PASSWORD manquant dans .env}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./docker/initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U technova_admin -d technova"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  # tache unique : cree les tables, donne les droits au role applicatif, charge le dataset
+  init:
+    build: .
+    image: p5_ml_deployment:local
+    command: ["sh", "-c", "python scripts/create_db.py && python scripts/load_dataset.py"]
+    environment:
+      DATABASE_ADMIN_URL: postgresql+psycopg://technova_admin:${POSTGRES_ADMIN_PASSWORD}@db:5432/technova
+    depends_on:
+      db:
+        condition: service_healthy
+
+  api:
+    build: .
+    image: p5_ml_deployment:local
+    environment:
+      APP_ENV: ${APP_ENV:-dev}
+      DATABASE_URL: postgresql+psycopg://technova_app:${POSTGRES_APP_PASSWORD}@db:5432/technova
+      API_KEY: ${API_KEY:?API_KEY manquant dans .env}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  db-data:
