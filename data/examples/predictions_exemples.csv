@@ -1,0 +1,85 @@
+prediction_id,created_at,source,employee_id,age,genre,revenu_mensuel,statut_marital,departement,poste,nombre_experiences_precedentes,annee_experience_totale,annees_dans_le_poste_actuel,satisfaction_employee_environnement,note_evaluation_precedente,niveau_hierarchique_poste,satisfaction_employee_nature_travail,satisfaction_employee_equipe,satisfaction_employee_equilibre_pro_perso,note_evaluation_actuelle,heure_supplementaires,augementation_salaire_precedente,nombre_participation_pee,nb_formations_suivies,distance_domicile_travail,niveau_education,domaine_etude,frequence_deplacement,annees_depuis_la_derniere_promotion,probabilite_depart,prediction,seuil,model_version,latency_ms
+1,2026-10-22 15:38:34.633107+00:00,script,763,40,F,2342,Célibataire,Consulting,Assistant de Direction,0,5,2,4,2,1,4,4,2,4,Oui,20.0,0,2,2,1,Transformation Digitale,Occasionnel,2,0.5077,1,0.4349,1.0.0,0.223
+2,2026-10-22 15:38:34.633107+00:00,script,141,50,F,18172,Marié(e),Consulting,Directeur Technique,3,28,3,1,3,5,2,1,2,3,Oui,19.0,0,1,1,3,Infra & Cloud,Frequent,0,0.3938,0,0.4349,1.0.0,0.223
+3,2026-10-22 15:38:34.633107+00:00,script,720,24,F,4577,Célibataire,Commercial,Cadre Commercial,9,4,2,1,3,2,3,1,3,3,Non,14.0,0,3,3,2,Infra & Cloud,Occasionnel,2,0.5033,1,0.4349,1.0.0,0.223
+4,2026-10-22 15:38:34.633107+00:00,script,874,44,M,2818,Marié(e),Consulting,Consultant,2,10,2,1,4,1,4,3,2,4,Oui,24.0,1,2,8,4,Infra & Cloud,Occasionnel,0,0.4844,1,0.4349,1.0.0,0.223
+5,2026-10-22 15:38:34.633107+00:00,script,1234,32,F,2743,Marié(e),Consulting,Consultant,1,2,2,3,2,1,2,3,3,4,Non,20.0,1,2,13,3,Autre,Frequent,2,0.5287,1,0.4349,1.0.0,0.223
+6,2026-10-22 15:38:34.633107+00:00,script,1371,27,M,5071,Célibataire,Commercial,Cadre Commercial,3,8,2,4,1,2,4,2,3,4,Non,20.0,0,3,2,1,Infra & Cloud,Frequent,0,0.4288,0,0.4349,1.0.0,0.223
+7,2026-10-22 15:38:34.633107+00:00,script,179,51,M,10650,Célibataire,Consulting,Tech Lead,2,18,2,1,1,3,4,4,3,3,Non,15.0,0,2,8,4,Infra & Cloud,Frequent,0,0.3707,0,0.4349,1.0.0,0.223
+8,2026-10-22 15:38:34.633107+00:00,script,1939,32,F,2432,Célibataire,Consulting,Assistant de Direction,3,8,1,1,4,1,3,1,3,3,Oui,14.0,0,2,5,2,Infra & Cloud,Frequent,0,0.7356,1,0.4349,1.0.0,0.223
+9,2026-10-22 15:38:34.633107+00:00,script,118,46,M,9619,Célibataire,Commercial,Cadre Commercial,1,9,8,3,2,3,4,4,3,3,Non,16.0,0,3,9,2,Transformation Digitale,Occasionnel,4,0.3781,0,0.4349,1.0.0,0.223
+10,2026-10-22 15:38:34.633107+00:00,script,606,45,M,4805,Marié(e),Commercial,Cadre Commercial,0,9,7,4,3,2,2,2,4,3,Non,19.0,1,3,2,3,Autre,Occasionnel,3,0.2865,0,0.4349,1.0.0,0.223
+11,2026-10-22 15:38:34.633107+00:00,script,1068,26,F,2007,Divorcé(e),Consulting,Assistant de Direction,1,5,3,1,2,1,3,3,3,3,Non,13.0,2,5,1,1,Transformation Digitale,Frequent,1,0.48,1,0.4349,1.0.0,0.223
+12,2026-10-22 15:38:34.633107+00:00,script,463,29,F,8268,Divorcé(e),Commercial,Cadre Commercial,1,7,7,4,2,2,2,1,3,3,Oui,14.0,2,2,10,1,Marketing,Occasionnel,1,0.4074,0,0.4349,1.0.0,0.223
+13,2026-10-22 15:38:34.633107+00:00,script,1597,34,M,5063,Marié(e),Consulting,Manager,1,8,2,4,2,2,3,2,2,3,Non,14.0,1,3,10,4,Entrepreunariat,Frequent,7,0.3169,0,0.4349,1.0.0,0.223
+14,2026-10-22 15:38:34.633107+00:00,script,1349,41,F,4103,Divorcé(e),Commercial,Cadre Commercial,0,10,3,3,3,2,1,4,3,3,Non,17.0,1,2,1,3,Marketing,Frequent,1,0.303,0,0.4349,1.0.0,0.223
+15,2026-10-22 15:38:34.633107+00:00,script,1038,52,F,19845,Marié(e),Commercial,Senior Manager,1,33,14,1,1,5,4,4,3,3,Non,15.0,1,3,2,1,Marketing,Occasionnel,6,0.3421,0,0.4349,1.0.0,0.223
+16,2026-10-22 15:38:34.633107+00:00,script,1173,24,M,3597,Célibataire,Consulting,Consultant,8,6,3,4,3,1,2,4,3,4,Non,22.0,0,2,24,3,Transformation Digitale,Occasionnel,1,0.5212,1,0.4349,1.0.0,0.223
+17,2026-10-22 15:38:34.633107+00:00,script,1962,35,F,5204,Marié(e),Commercial,Cadre Commercial,1,10,8,3,3,2,4,4,3,3,Oui,11.0,0,2,7,4,Infra & Cloud,Occasionnel,0,0.4219,0,0.4349,1.0.0,0.223
+18,2026-10-22 15:38:34.633107+00:00,script,1548,40,M,5473,Marié(e),Commercial,Cadre Commercial,0,9,4,1,3,2,1,4,4,3,Non,12.0,0,5,9,2,Transformation Digitale,Occasionnel,7,0.4019,0,0.4349,1.0.0,0.223
+19,2026-10-22 15:38:34.633107+00:00,script,1931,27,M,2226,Marié(e),Consulting,Assistant de Direction,1,6,3,2,3,1,2,3,2,3,Non,11.0,1,3,2,4,Entrepreunariat,Occasionnel,1,0.4593,1,0.4349,1.0.0,0.223
+20,2026-10-22 15:38:34.633107+00:00,script,1003,47,F,4163,Célibataire,Commercial,Cadre Commercial,1,9,0,4,3,2,4,3,3,3,Oui,17.0,0,0,4,2,Infra & Cloud,Occasionnel,0,0.4543,1,0.4349,1.0.0,0.223
+21,2026-10-22 15:38:34.633107+00:00,script,998,33,F,5488,Marié(e),Consulting,Manager,1,6,5,3,4,2,2,1,3,3,Oui,13.0,1,2,1,4,Autre,Frequent,1,0.3351,0,0.4349,1.0.0,0.223
+22,2026-10-22 15:38:34.633107+00:00,script,2,49,M,5130,Marié(e),Consulting,Assistant de Direction,1,10,7,3,2,2,2,4,3,4,Non,23.0,1,3,8,1,Infra & Cloud,Frequent,1,0.2677,0,0.4349,1.0.0,0.223
+23,2026-10-22 15:38:34.633107+00:00,script,671,44,M,19513,Marié(e),Consulting,Senior Manager,4,26,2,4,3,5,4,1,4,3,Oui,12.0,1,2,3,4,Autre,Occasionnel,0,0.2911,0,0.4349,1.0.0,0.223
+24,2026-10-22 15:38:34.633107+00:00,script,86,45,M,9724,Divorcé(e),Consulting,Assistant de Direction,2,25,0,2,3,3,1,3,3,3,Non,17.0,1,2,7,3,Infra & Cloud,Occasionnel,0,0.2853,0,0.4349,1.0.0,0.223
+25,2026-10-22 15:38:34.633107+00:00,script,1218,35,M,8966,Marié(e),Commercial,Cadre Commercial,3,15,7,3,3,2,1,4,3,3,Oui,15.0,3,2,17,4,Infra & Cloud,Occasionnel,1,0.4012,0,0.4349,1.0.0,0.223
+26,2026-10-22 15:38:34.633107+00:00,script,1133,36,M,7779,Célibataire,Consulting,Tech Lead,2,18,9,1,3,2,4,1,3,4,Non,20.0,0,0,18,4,Infra & Cloud,Aucun,0,0.338,0,0.4349,1.0.0,0.223
+27,2026-10-22 15:38:34.633107+00:00,script,584,33,M,3408,Divorcé(e),Consulting,Consultant,7,8,3,1,1,1,4,1,3,3,Non,13.0,3,2,10,1,Transformation Digitale,Occasionnel,1,0.4903,1,0.4349,1.0.0,0.223
+28,2026-10-22 15:38:34.633107+00:00,script,514,30,M,2285,Célibataire,Consulting,Assistant de Direction,9,3,0,3,3,1,4,3,3,4,Oui,23.0,0,4,4,3,Entrepreunariat,Frequent,0,0.7778,1,0.4349,1.0.0,0.223
+29,2026-10-22 15:38:34.633107+00:00,script,73,33,F,13458,Célibataire,Consulting,Directeur Technique,1,15,14,1,3,3,4,3,3,3,Oui,12.0,0,1,1,2,Infra & Cloud,Frequent,8,0.4037,0,0.4349,1.0.0,0.223
+30,2026-10-22 15:38:34.633107+00:00,script,81,59,F,7637,Célibataire,Commercial,Cadre Commercial,7,28,16,1,3,3,1,4,2,3,Non,11.0,0,3,25,3,Infra & Cloud,Occasionnel,7,0.4996,1,0.4349,1.0.0,0.223
+31,2026-10-22 15:38:48.160744+00:00,api,,41,F,5993,Célibataire,Commercial,Cadre Commercial,8,8,4,2,3,2,4,1,1,3,Oui,11.0,0,0,1,2,Infra & Cloud,Occasionnel,0,0.5445,1,0.4349,1.0.0,4.967
+32,2026-10-22 15:38:48.186493+00:00,api_batch,,41,F,5993,Célibataire,Commercial,Cadre Commercial,8,8,4,2,3,2,4,1,1,3,Oui,11.0,0,0,1,2,Infra & Cloud,Occasionnel,0,0.5445,1,0.4349,1.0.0,2.166
+33,2026-10-22 15:38:48.186493+00:00,api_batch,,41,F,5993,Célibataire,Commercial,Cadre Commercial,8,8,4,2,3,2,4,1,1,3,Non,11.0,0,0,1,2,Infra & Cloud,Occasionnel,0,0.4379,1,0.4349,1.0.0,2.166
+34,2026-10-22 15:38:48.202988+00:00,employee,2,49,M,5130,Marié(e),Consulting,Assistant de Direction,1,10,7,3,2,2,2,4,3,4,Non,23.0,1,3,8,1,Infra & Cloud,Frequent,1,0.2677,0,0.4349,1.0.0,4.123
+35,2026-10-22 15:39:02.306718+00:00,script,1336,55,F,19187,Marié(e),Consulting,Senior Manager,4,23,9,4,1,5,3,4,3,3,Non,14.0,1,5,2,2,Transformation Digitale,Occasionnel,9,0.2329,0,0.4349,1.0.0,0.102
+36,2026-10-22 15:39:02.306718+00:00,script,976,52,M,17099,Marié(e),Consulting,Senior Manager,2,26,8,4,3,4,4,2,2,3,Non,15.0,1,2,1,2,Infra & Cloud,Occasionnel,7,0.2143,0,0.4349,1.0.0,0.102
+37,2026-10-22 15:39:02.306718+00:00,script,1507,28,M,4898,Célibataire,Commercial,Cadre Commercial,0,5,2,3,3,2,1,4,3,3,Non,14.0,0,5,7,3,Infra & Cloud,Frequent,1,0.41,0,0.4349,1.0.0,0.102
+38,2026-10-22 15:39:02.306718+00:00,script,144,22,F,2871,Célibataire,Consulting,Consultant,1,1,0,2,3,1,4,3,3,3,Non,15.0,0,5,15,3,Transformation Digitale,Occasionnel,0,0.6848,1,0.4349,1.0.0,0.102
+39,2026-10-22 15:39:02.306718+00:00,script,1770,55,M,19038,Marié(e),Consulting,Directeur Technique,8,34,0,3,2,5,1,2,3,3,Non,12.0,3,2,2,3,Transformation Digitale,Occasionnel,0,0.2724,0,0.4349,1.0.0,0.102
+40,2026-10-22 15:39:02.306718+00:00,script,450,54,F,4869,Célibataire,Consulting,Assistant de Direction,3,20,3,4,3,2,3,4,2,3,Non,12.0,0,4,20,4,Infra & Cloud,Frequent,0,0.3237,0,0.4349,1.0.0,0.102
+41,2026-10-22 15:39:02.306718+00:00,script,901,53,F,14275,Célibataire,Consulting,Directeur Technique,6,33,9,4,3,4,4,3,3,3,Non,18.0,0,0,23,4,Infra & Cloud,Occasionnel,3,0.2594,0,0.4349,1.0.0,0.102
+42,2026-10-22 15:39:02.306718+00:00,script,773,38,M,3057,Marié(e),Consulting,Assistant de Direction,6,6,0,4,3,1,3,2,1,3,Oui,13.0,1,0,2,5,Transformation Digitale,Occasionnel,0,0.4721,1,0.4349,1.0.0,0.102
+43,2026-10-22 15:39:02.306718+00:00,script,725,27,F,7412,Marié(e),Consulting,Tech Lead,1,9,7,3,3,3,1,4,3,3,Non,11.0,0,3,1,2,Infra & Cloud,Occasionnel,0,0.3478,0,0.4349,1.0.0,0.102
+44,2026-10-22 15:39:02.306718+00:00,script,878,36,M,2342,Marié(e),Ressources Humaines,Ressources Humaines,0,6,4,1,2,1,1,3,3,4,Non,21.0,0,3,8,3,Infra & Cloud,Occasionnel,0,0.4839,1,0.4349,1.0.0,0.102
+45,2026-10-22 15:39:02.306718+00:00,script,1635,45,F,5770,Divorcé(e),Consulting,Tech Lead,1,10,7,4,2,2,4,1,3,3,Non,19.0,2,3,2,2,Autre,Occasionnel,3,0.2288,0,0.4349,1.0.0,0.102
+46,2026-10-22 15:39:02.306718+00:00,script,1383,34,F,6687,Célibataire,Consulting,Manager,1,14,11,3,3,2,4,4,4,3,Non,11.0,0,2,2,4,Entrepreunariat,Occasionnel,4,0.2525,0,0.4349,1.0.0,0.102
+47,2026-10-22 15:39:02.306718+00:00,script,55,26,M,2293,Célibataire,Consulting,Consultant,1,1,0,1,1,1,3,3,2,3,Non,12.0,0,2,25,3,Infra & Cloud,Occasionnel,0,0.7988,1,0.4349,1.0.0,0.102
+48,2026-10-22 15:39:02.306718+00:00,script,879,25,M,4194,Marié(e),Commercial,Cadre Commercial,1,5,3,3,3,2,1,4,3,3,Oui,18.0,0,3,3,1,Autre,Occasionnel,0,0.4889,1,0.4349,1.0.0,0.102
+49,2026-10-22 15:39:02.306718+00:00,script,1568,30,M,9250,Marié(e),Commercial,Cadre Commercial,3,9,2,3,3,3,2,2,3,3,Non,12.0,1,3,29,4,Entrepreunariat,Occasionnel,1,0.3884,0,0.4349,1.0.0,0.102
+50,2026-10-22 15:39:02.306718+00:00,script,1892,40,M,16823,Divorcé(e),Consulting,Senior Manager,2,22,7,1,3,4,1,1,3,3,Non,11.0,1,3,1,4,Infra & Cloud,Occasionnel,11,0.2601,0,0.4349,1.0.0,0.102
+51,2026-10-22 15:39:02.306718+00:00,script,1667,35,M,4581,Célibataire,Commercial,Cadre Commercial,3,13,9,4,3,2,4,1,4,4,Oui,24.0,0,2,12,4,Autre,Frequent,6,0.4567,1,0.4349,1.0.0,0.102
+52,2026-10-22 15:39:02.306718+00:00,script,1701,34,F,2929,Marié(e),Consulting,Assistant de Direction,1,10,9,2,2,1,4,2,3,3,Non,12.0,0,3,19,3,Infra & Cloud,Occasionnel,8,0.3987,0,0.4349,1.0.0,0.102
+53,2026-10-22 15:39:02.306718+00:00,script,1264,29,F,16124,Divorcé(e),Consulting,Directeur Technique,3,9,7,4,2,4,4,2,2,3,Non,14.0,2,2,1,3,Infra & Cloud,Occasionnel,1,0.2243,0,0.4349,1.0.0,0.102
+54,2026-10-22 15:39:02.306718+00:00,script,967,36,M,10325,Marié(e),Commercial,Cadre Commercial,1,16,7,3,2,3,4,1,3,3,Oui,11.0,1,6,3,1,Infra & Cloud,Occasionnel,3,0.3892,0,0.4349,1.0.0,0.102
+55,2026-10-22 15:39:02.306718+00:00,script,425,45,M,5210,Divorcé(e),Consulting,Consultant,1,24,9,1,3,3,1,1,3,3,Non,18.0,1,2,7,3,Infra & Cloud,Frequent,9,0.3111,0,0.4349,1.0.0,0.102
+56,2026-10-22 15:39:02.306718+00:00,script,1966,32,M,9679,Célibataire,Consulting,Tech Lead,8,8,0,4,2,2,4,2,3,4,Non,24.0,0,1,5,4,Infra & Cloud,Occasionnel,0,0.4101,0,0.4349,1.0.0,0.102
+57,2026-10-22 15:39:02.306718+00:00,script,305,33,F,2622,Marié(e),Consulting,Assistant de Direction,6,7,2,3,2,1,2,4,3,4,Non,21.0,0,3,4,4,Transformation Digitale,Occasionnel,1,0.4973,1,0.4349,1.0.0,0.102
+58,2026-10-22 15:39:02.306718+00:00,script,1662,36,F,4374,Marié(e),Consulting,Tech Lead,0,4,2,4,2,2,3,3,3,3,Non,15.0,0,6,1,4,Transformation Digitale,Aucun,1,0.2948,0,0.4349,1.0.0,0.102
+59,2026-10-22 15:39:02.306718+00:00,script,1380,35,F,4614,Marié(e),Commercial,Cadre Commercial,0,5,2,4,3,2,3,3,2,3,Oui,18.0,1,0,18,4,Marketing,Frequent,3,0.4818,1,0.4349,1.0.0,0.102
+60,2026-10-22 15:39:02.306718+00:00,script,86,45,M,9724,Divorcé(e),Consulting,Assistant de Direction,2,25,0,2,3,3,1,3,3,3,Non,17.0,1,2,7,3,Infra & Cloud,Occasionnel,0,0.2853,0,0.4349,1.0.0,0.102
+61,2026-10-22 15:39:02.306718+00:00,script,1661,49,F,13966,Marié(e),Consulting,Manager,2,30,11,3,2,4,3,2,3,3,Oui,19.0,1,3,6,1,Infra & Cloud,Occasionnel,2,0.2472,0,0.4349,1.0.0,0.102
+62,2026-10-22 15:39:02.306718+00:00,script,243,19,M,1102,Célibataire,Consulting,Consultant,1,1,0,2,2,1,4,3,2,4,Non,22.0,0,3,2,3,Infra & Cloud,Occasionnel,1,0.7658,1,0.4349,1.0.0,0.102
+63,2026-10-22 15:39:02.306718+00:00,script,1014,35,F,10388,Divorcé(e),Consulting,Manager,1,16,10,3,3,3,3,3,2,3,Oui,11.0,1,3,25,4,Transformation Digitale,Occasionnel,10,0.3198,0,0.4349,1.0.0,0.102
+64,2026-10-22 15:39:02.306718+00:00,script,486,37,F,3452,Marié(e),Consulting,Consultant,6,17,4,3,3,1,1,2,3,4,Non,20.0,1,3,10,3,Transformation Digitale,Occasionnel,0,0.36,0,0.4349,1.0.0,0.102
+65,2026-10-22 15:39:02.306718+00:00,script,947,31,F,6932,Marié(e),Commercial,Cadre Commercial,1,9,8,4,3,2,3,4,2,3,Non,13.0,1,2,20,2,Marketing,Aucun,0,0.3619,0,0.4349,1.0.0,0.102
+66,2026-10-22 15:39:02.306718+00:00,script,1024,48,M,10999,Célibataire,Consulting,Manager,7,27,11,3,2,3,3,2,3,3,Non,14.0,0,3,4,4,Infra & Cloud,Occasionnel,4,0.2801,0,0.4349,1.0.0,0.102
+67,2026-10-22 15:39:02.306718+00:00,script,1460,45,M,10851,Divorcé(e),Consulting,Manager,2,24,7,2,1,3,1,2,3,3,Oui,18.0,1,2,20,3,Transformation Digitale,Occasionnel,0,0.3276,0,0.4349,1.0.0,0.102
+68,2026-10-22 15:39:02.306718+00:00,script,387,42,M,4907,Marié(e),Commercial,Cadre Commercial,1,20,16,2,3,2,3,3,3,4,Non,25.0,0,3,1,1,Infra & Cloud,Occasionnel,11,0.316,0,0.4349,1.0.0,0.102
+69,2026-10-22 15:39:02.306718+00:00,script,1034,55,M,6385,Marié(e),Consulting,Manager,3,17,7,3,3,2,2,4,3,3,Oui,14.0,2,3,18,4,Transformation Digitale,Frequent,6,0.3154,0,0.4349,1.0.0,0.102
+70,2026-10-22 15:39:02.306718+00:00,script,338,33,F,2911,Marié(e),Consulting,Assistant de Direction,1,2,2,3,2,1,4,3,2,3,Non,13.0,1,2,5,4,Infra & Cloud,Occasionnel,0,0.4347,0,0.4349,1.0.0,0.102
+71,2026-10-22 15:39:02.306718+00:00,script,872,22,M,4775,Marié(e),Consulting,Tech Lead,6,4,2,4,2,2,4,1,1,4,Non,22.0,2,2,1,2,Infra & Cloud,Occasionnel,2,0.3388,0,0.4349,1.0.0,0.102
+72,2026-10-22 15:39:02.306718+00:00,script,1479,30,M,5301,Marié(e),Commercial,Cadre Commercial,8,4,1,4,3,2,3,3,2,3,Non,15.0,2,2,16,1,Infra & Cloud,Occasionnel,2,0.4236,0,0.4349,1.0.0,0.102
+73,2026-10-22 15:39:02.306718+00:00,script,500,51,F,4936,Marié(e),Commercial,Cadre Commercial,4,18,7,3,3,2,4,3,2,3,Non,11.0,1,2,14,2,Infra & Cloud,Occasionnel,0,0.3481,0,0.4349,1.0.0,0.102
+74,2026-10-22 15:39:02.306718+00:00,script,1719,45,F,16704,Célibataire,Consulting,Directeur Technique,1,21,6,4,2,4,2,3,3,3,Non,11.0,0,2,28,2,Entrepreunariat,Occasionnel,8,0.2803,0,0.4349,1.0.0,0.102
+75,2026-10-22 15:39:02.306718+00:00,script,62,46,M,5772,Célibataire,Commercial,Cadre Commercial,4,14,6,1,3,2,4,3,3,4,Oui,21.0,0,4,5,4,Marketing,Frequent,0,0.497,1,0.4349,1.0.0,0.102
+76,2026-10-22 15:39:02.306718+00:00,script,885,25,M,4256,Marié(e),Commercial,Cadre Commercial,1,5,2,3,2,2,1,1,4,3,Non,12.0,0,1,4,1,Marketing,Occasionnel,0,0.4416,1,0.4349,1.0.0,0.102
+77,2026-10-22 15:39:02.306718+00:00,script,720,24,F,4577,Célibataire,Commercial,Cadre Commercial,9,4,2,1,3,2,3,1,3,3,Non,14.0,0,3,3,2,Infra & Cloud,Occasionnel,2,0.5033,1,0.4349,1.0.0,0.102
+78,2026-10-22 15:39:02.306718+00:00,script,1010,35,M,3743,Divorcé(e),Consulting,Consultant,1,5,2,3,2,1,2,4,1,4,Oui,24.0,1,2,14,4,Autre,Occasionnel,0,0.5486,1,0.4349,1.0.0,0.102
+79,2026-10-22 15:39:02.306718+00:00,script,32,53,F,19094,Divorcé(e),Consulting,Senior Manager,4,26,13,3,3,5,3,4,2,3,Non,11.0,1,3,5,3,Autre,Occasionnel,4,0.2121,0,0.4349,1.0.0,0.102
+80,2026-10-22 15:39:02.306718+00:00,script,741,28,F,2216,Célibataire,Consulting,Assistant de Direction,7,10,7,1,1,1,2,4,3,3,Oui,13.0,0,4,1,2,Infra & Cloud,Occasionnel,3,0.7106,1,0.4349,1.0.0,0.102
+81,2026-10-22 15:39:02.306718+00:00,script,259,52,M,19999,Marié(e),Consulting,Senior Manager,0,34,18,3,2,5,3,1,3,3,Non,14.0,1,5,1,4,Infra & Cloud,Occasionnel,11,0.231,0,0.4349,1.0.0,0.102
+82,2026-10-22 15:39:02.306718+00:00,script,1558,29,M,2451,Marié(e),Consulting,Assistant de Direction,6,5,0,3,4,1,3,1,2,3,Non,18.0,2,2,9,3,Infra & Cloud,Occasionnel,0,0.4684,1,0.4349,1.0.0,0.102
+83,2026-10-22 15:39:02.306718+00:00,script,815,50,M,17639,Marié(e),Consulting,Directeur Technique,5,30,3,3,3,4,3,4,3,3,Non,16.0,0,3,2,3,Transformation Digitale,Occasionnel,0,0.2666,0,0.4349,1.0.0,0.102
+84,2026-10-22 15:39:02.306718+00:00,script,267,37,M,3564,Marié(e),Consulting,Assistant de Direction,1,8,7,2,4,1,1,1,2,3,Oui,12.0,1,3,21,3,Infra & Cloud,Occasionnel,1,0.4244,0,0.4349,1.0.0,0.102
