@@ -20,7 +20,8 @@ class Settings(BaseSettings):
     app_env: Literal["dev", "test", "prod"] = "dev"
     model_path: Path = RACINE / "app" / "ml" / "model.joblib"
     api_key: str | None = None  # si defini, les endpoints de prediction exigent l'en-tete X-API-Key
-    database_url: str | None = None
+    database_url: str | None = None  # role applicatif (API)
+    database_admin_url: str | None = None  # role proprietaire (creation des tables, chargement du dataset)
 
 
 @lru_cache
