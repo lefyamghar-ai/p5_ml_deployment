@@ -1,0 +1,21 @@
+# Environnements
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Secrets : ne jamais commiter le vrai .env
+.env
+
+# Tests / couverture
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Outils
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+.idea/
+.vscode/
