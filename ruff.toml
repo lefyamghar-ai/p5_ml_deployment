@@ -1,0 +1,6 @@
+# Standards de code du projet (verifies par la CI)
+line-length = 120
+target-version = "py313"
+
+[lint]
+select = ["E", "F", "W", "I", "UP", "B"]
