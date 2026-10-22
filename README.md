@@ -51,7 +51,8 @@ Le prétraitement (`app/ml/preprocessing.py`) reproduit exactement celui du proj
 │   ├── employes.csv      # Données fusionnées (1 470 employés)
 │   └── examples/         # Exemples d'entrées/sorties du modèle extraits de la base
 ├── docs/
-│   └── database.md       # Schéma UML de la base, choix de conception, droits d'accès
+│   ├── database.md       # Schéma UML de la base, choix de conception, droits d'accès
+│   └── tests.md          # Stratégie de test, couverture, points faibles traités
 ├── sql/
 │   ├── 00_roles.sql      # Rôles PostgreSQL et base (moindre privilège)
 │   └── 01_schema.sql     # DDL des tables (généré)
@@ -61,6 +62,8 @@ Le prétraitement (`app/ml/preprocessing.py`) reproduit exactement celui du proj
 │   ├── load_dataset.py   # Charge le dataset dans employees
 │   ├── predict_from_db.py # Prédit sur des employés de la base (tracé en base)
 │   └── query_db.py       # Requêtes d'exemple, export CSV
+├── tests/                # Tests Pytest (unitaires et fonctionnels)
+├── pyproject.toml        # Configuration de pytest et de la couverture
 ├── requirements.txt      # Dépendances d'exécution
 ├── requirements-dev.txt  # + tests, couverture, lint
 ├── ruff.toml             # Standards de code (vérifiés par ruff)
@@ -154,6 +157,16 @@ Toute donnée non conforme est refusée avec un code **422** qui indique le cham
 - Aucun secret dans le code : `API_KEY` et les URL de base de données viennent du `.env` (ignoré par Git)
   ou des secrets GitHub.
 
+## Tests
+
+```bash
+pytest --cov --cov-report=term-missing --cov-report=html
+```
+
+**160 tests, couverture 100 %** du code de `app/` (lignes et branches), seuil minimal de 90 % imposé.
+Ils tournent sur SQLite par défaut, ou sur PostgreSQL avec `TEST_DATABASE_URL`.
+Détail des tests, de la couverture et des points faibles traités : [docs/tests.md](docs/tests.md).
+
 ## Standards de code
 
 - Style et imports vérifiés par [ruff](https://docs.astral.sh/ruff/) (`ruff check .`), règles dans `ruff.toml`.
@@ -186,6 +199,6 @@ par exemple `feat: ajoute l'endpoint /predict`, `fix: ...`, `test: ...`, `docs: 
 - [x] Export du modèle du projet 4
 - [x] API FastAPI (`/health`, `/model/info`, `/predict`, `/predict/batch`), validation Pydantic, clé API
 - [x] Base PostgreSQL : schéma, chargement du dataset, traçabilité de chaque prédiction, historique via l'API
-- [ ] Tests Pytest et rapport de couverture
+- [x] Tests Pytest (160 tests) et rapport de couverture (100 %)
 - [ ] Pipeline CI/CD GitHub Actions (environnements dev/test/prod, secrets)
 - [ ] Documentation complète et soutenance
